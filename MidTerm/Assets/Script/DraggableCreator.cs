@@ -39,7 +39,7 @@ public class DraggableCreator : MonoBehaviour
         {
             currentMousePosition = GetMousePosition();
             Quaternion rotation = Quaternion.Euler(0, 0, -30);
-            Instantiate(prefab, currentMousePosition, rotation);
+            Instantiate(prefab, currentMousePosition, rotation); //create a wood plank and set rotation 
             objectCount++;
         }
     }

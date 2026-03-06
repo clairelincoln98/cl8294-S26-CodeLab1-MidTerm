@@ -10,7 +10,6 @@ public class Draggable : MonoBehaviour
     public bool isInPlace = false;
 
     public Rigidbody rigidBody;
-    private string filePath = "/Resources/DraggableObject/";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
    
@@ -18,13 +17,7 @@ public class Draggable : MonoBehaviour
     {
         
         rigidBody = GetComponent<Rigidbody>();
-       filePath = Application.dataPath + filePath;
-        string fileContents = File.ReadAllText(filePath + name + ".json");
-        
-        Debug.Log(fileContents);
-        
-        Vector3 savePosition = JsonUtility.FromJson<Vector3>(fileContents);
-        transform.position = savePosition;
+       
     }
 
     // Update is called once per frame
@@ -67,16 +60,7 @@ public class Draggable : MonoBehaviour
         
         return currentMousePosition;
     }
-
-    void OnApplicationQuit()
-    {
-        string jsonPosition = JsonUtility.ToJson(transform.position, true);
-        
-        Debug.Log(jsonPosition);
-        
-        File.WriteAllText(filePath + name + ".json", jsonPosition);
-    }
-
+    
     
 }
 

@@ -6,9 +6,8 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    private const string DIR_RESOURCES = "/Resources/HighScore/";
-    const string FILE_SCORES = DIR_RESOURCES + "highScore.txt";
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private const string DIR_RESOURCES = "/Resources/HighScore/"; //create the string for the file path
+    const string FILE_SCORES = DIR_RESOURCES + "highScore.txt"; //combine file with text file
 
     private const string KeyScore = "Score";
     private const string KeyHighScore = "High Score";

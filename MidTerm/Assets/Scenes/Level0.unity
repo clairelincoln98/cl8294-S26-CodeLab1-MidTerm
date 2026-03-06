@@ -931,6 +931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodCreator (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9055782697445374226, guid: 0616b1329adeb414aa17fc0756be8660, type: 3}
+      propertyPath: isTrashCreator
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

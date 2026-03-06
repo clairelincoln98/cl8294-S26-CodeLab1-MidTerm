@@ -4,12 +4,24 @@ public class Basket : MonoBehaviour
 {
     public static Basket instance; //make this a singleton so it shows up in the same place each level
 
+    public float foodCount = 0;
 
+    void Update()
+    {
+        if (foodCount > 10) //for every 10 fresh eggs, add a point to Score
+        {
+            //Debug.Log("foodcount" + foodCount);
+            GameManager.instance.Score = GameManager.instance.Score + 1;
+            foodCount = 0;
+        }
+        
+    }
+    
     void Start()
     {
         if (instance == null)
         {
-            // Don't destroy if there is no gamemanager in scene
+            // Don't destroy if there is no Basket in scene
 
             DontDestroyOnLoad(gameObject);
             instance = this;
@@ -17,7 +29,7 @@ public class Basket : MonoBehaviour
         }
         else
         {
-            // destroy the previous gamemanager if there is two present 
+            // destroy the previous Basket if there is two present 
             Destroy(gameObject);
         }
     }
@@ -27,14 +39,19 @@ public class Basket : MonoBehaviour
         print(other.gameObject);
         if (other.gameObject.tag == "food")
         {
+            foodCount += 1;
+            // if (foodCount >= 10)
+            // {
+            //     GameManager.instance.Score = GameManager.instance.Score + 1;
+            // }
             //Debug.Log("collision working");
-            GameManager.instance.Score = GameManager.instance.Score + 1;
         }
         
         if (other.gameObject.tag == "trash")
         {
-            Debug.Log("trash working");
-            GameManager.instance.Score--;
+            foodCount -= 1; //for every rotten egg, minus a point from foodcount
+            // Debug.Log("trash working");
+            //GameManager.instance.Score--; Removed this to make system more forgiving
         }
         
         // if (other.gameObject.GetComponent<ObjectScript>()?.isTrash == true) //this was a solution when I thought the tags were causing issues
