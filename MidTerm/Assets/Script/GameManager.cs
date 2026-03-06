@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private int score;
 
-    public float time = 15f;
+    public float time = 20f;
 
     public int Score
     {
@@ -155,14 +155,14 @@ public class GameManager : MonoBehaviour
         if (time <= 0)
         {
             
-            Debug.Log("Time is 0");
+            //Debug.Log("Time is 0");
             //add 1 to the currentLevel variable
             currentLevel++;
             // Load the scene with the variable
             SceneManager.LoadScene(currentLevel);
             DraggableCreator.instance.objectCount = 0;
             DraggableCreator2.instance.objectCount = 0;
-            time = 15f;
+            time = 20f;
             
         }
         

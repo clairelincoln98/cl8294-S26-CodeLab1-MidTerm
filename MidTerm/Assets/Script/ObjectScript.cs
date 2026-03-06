@@ -57,7 +57,7 @@ public class ObjectScript : MonoBehaviour
     public void Update()
     {
         
-        if (transform.position.y <= -4)
+        if (transform.position.y <= -5)
         {
             Destroy(gameObject);
         }

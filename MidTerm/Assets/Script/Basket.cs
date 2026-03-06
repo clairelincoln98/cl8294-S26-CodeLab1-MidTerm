@@ -8,9 +8,10 @@ public class Basket : MonoBehaviour
 
     void Update()
     {
-        if (foodCount > 10) //for every 10 fresh eggs, add a point to Score
+        Debug.Log(foodCount);
+        if (foodCount >= 5) //for every 10 fresh eggs, add a point to Score
         {
-            //Debug.Log("foodcount" + foodCount);
+            Debug.Log("foodcount" + foodCount);
             GameManager.instance.Score = GameManager.instance.Score + 1;
             foodCount = 0;
         }
@@ -35,8 +36,8 @@ public class Basket : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        print(other);
-        print(other.gameObject);
+        //print(other);
+        //print(other.gameObject);
         if (other.gameObject.tag == "food")
         {
             foodCount += 1;
@@ -44,13 +45,14 @@ public class Basket : MonoBehaviour
             // {
             //     GameManager.instance.Score = GameManager.instance.Score + 1;
             // }
-            //Debug.Log("collision working");
+            Debug.Log("collision working");
         }
+        
         
         if (other.gameObject.tag == "trash")
         {
             foodCount -= 1; //for every rotten egg, minus a point from foodcount
-            // Debug.Log("trash working");
+            Debug.Log("trash working");
             //GameManager.instance.Score--; Removed this to make system more forgiving
         }
         

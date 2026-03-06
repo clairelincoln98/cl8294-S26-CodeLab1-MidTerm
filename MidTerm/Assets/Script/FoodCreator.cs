@@ -14,7 +14,7 @@ public class FoodCreator : MonoBehaviour
 
 void Start()
 {
-        InvokeRepeating("CreateFood", 0, .2f);
+        InvokeRepeating("CreateFood", 3, .2f);
         
 }
 
